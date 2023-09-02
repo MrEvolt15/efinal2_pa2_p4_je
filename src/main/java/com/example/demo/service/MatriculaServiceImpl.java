@@ -2,6 +2,7 @@ package com.example.demo.service;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,19 +40,16 @@ public class MatriculaServiceImpl implements IMatriculaService{
 
 	@Override
 	@Transactional(value = TxType.REQUIRED)
-	public void matricular(String cedula, List<String> codigosMateria) {
+	public void matricular(String cedula, Stream<String> codigosMateria) {
 		// TODO Auto-generated method stub
 		Matricula m = new Matricula();
 		Estudiante e = this.estudianteRepository.seleccionarPorCedula(cedula);
-		for(String c:codigosMateria) {
-			
-			Materia ma = this.iMateriaService.buscarPorCodigo(c);
-			m.setMateria(ma);
-			m.setEstudiante(e);
-			
-			m.setFecha(LocalDate.now());
-			this.iMatriculaRepository.insertar(m);
-		}
+		codigosMateria.forEach(t -> {Materia ma = this.iMateriaService.buscarPorCodigo(t);
+		m.setMateria(ma);
+		m.setEstudiante(e);
+		m.setFecha(LocalDate.now());
+		this.iMatriculaRepository.insertar(m);});
+		
 	}
 
 }

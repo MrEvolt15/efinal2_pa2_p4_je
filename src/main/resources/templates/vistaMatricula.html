@@ -15,22 +15,24 @@
 		<table class="table table-success table-striped">
 			<tr>
 				<td><label>Cedula Estudiante:</label></td>
-				<td><input type="text" id="cedula" th:field="${materia.nombre}" ></td>
+				<td><input type="text" id="cedulaEstudiante" th:field="${matricula.estudiante.cedula}" ></td>
 			</tr>
 			<tr>
-				<td><label>Cedula Profesor:</label></td>
-				<td><input type="text" id="cedulaProfesor" th:field="${materia.cedulaProfesor}" ></td>
+				<td><label>Codigo 1:</label></td>
+				<td><input type="text" id="codigo" th:field="${matricula.materia.codigo}" ></td>
 			</tr>
 			<tr>
-				<td><label>Codigo:</label></td>
-				<td><input type="text" id="codigo" th:field="${materia.codigo}" ></td>
+				<td><label>Codigo 2:</label></td>
+				<td><input type="text" id="codigo" th:field="${matricula.materia.codigo}" ></td>
 			</tr>
 			<tr>
-				<td><label>Numero Creditos:</label></td>
-				<td><input type="text" id="numCreditos" th:field="${materia.numCreditos}" ></td>
+				<td><label>Codigo 3:</label></td>
+				<td><input type="text" id="codigo" th:field="${matricula.materia.codigo}" ></td>
 			</tr>
-			
-			
+			<tr>
+				<td><label>Codigo 4:</label></td>
+				<td><input type="text" id="codigo" th:field="${matricula.materia.codigo}" ></td>
+			</tr>
 		</table>
 		<input type="submit" value="guardar" class="btn btn-warning">
 	</form>
